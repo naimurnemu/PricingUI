@@ -7,5 +7,6 @@ const SelectInput = MakeLazy(() => import("./SelectInput"));
 const Subtitle = MakeLazy(() => import("./Subtitle"));
 const Info = MakeLazy(() => import("./Info"));
 const Title = MakeLazy(() => import("./Title"));
+const Grid = MakeLazy(() => import("./Grid"));
 
-export { Button, Text, Tooltip, SelectInput, Subtitle, Info, Title };
+export { Button, Text, Tooltip, SelectInput, Subtitle, Info, Title, Grid };

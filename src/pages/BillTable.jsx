@@ -1,16 +1,17 @@
 import React from "react";
-import { Card } from "../components";
 import { useSelector } from "react-redux";
+import { Card } from "../components";
+import { Grid } from "../components/ui";
 
 function BillTable() {
-  const { plans, plansInfo, features } = useSelector((state) => state.data);
-  console.log(plans);
+  const { plans, features } = useSelector((state) => state?.data?.data);
+ 
   return (
-    <div>
-      {plans.map(() => (
-        <Card />
+    <Grid>
+      {plans.map((data) => (
+        <Card key={data.id} data={data} />
       ))}
-    </div>
+    </Grid>
   );
 }
 

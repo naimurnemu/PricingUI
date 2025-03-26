@@ -1,35 +1,34 @@
 const theme = {
   colors: {
     primary: {
-      blue: "#007BFF",
-      orange: "#FD7E14",
-      green: "#28A745",
-      skyblue: "#17A2B8",
+      blue: "#4cb3fd",
+      orange: "#ffb72c",
+      green: "#68cb9b",
+      skyblue: "#b78deb",
       hover: {
-        blue: "#0056b3",
-        orange: "#e05f0d",
-        green: "#218838",
-        skyblue: "#117a8b",
+        blue: "#1884d1",
+        orange: "#d69312",
+        green: "#40a373",
+        skyblue: "#6e41a6",
       },
     },
     secondary: {
-      blue: "#0056b3",
-      orange: "#d35400",
-      green: "#1e7e34",
-      skyblue: "#138496",
+      blue: "#e5f2ff",
+      orange: "#fff0d9",
+      green: "#d8fdf0",
+      skyblue: "#f1e9fb",
     },
-    background: {
-      card: "#FFFFFF",
+
+    offer: {
+      background: "#f1e9fb",
+      linethrough: "#ff424d",
     },
-    text: {
-      subtitle: "#000000",
-      description: "#000000",
-    },
-    border: {
-      lightGray: "#DDDDDD",
+    text: "#49687e",
+    card: {
+      border: "#eaeff2",
+      background: "#ffffff",
     },
   },
 };
 
 export default theme;
-

@@ -8,8 +8,8 @@ const planTypeSlice = createSlice({
   name: "planType",
   initialState,
   reducers: {
-    setPlanTypes: (state, action) => {
-      state.planType = action.payload;
+    setPlanTypes: (state, { payload }) => {
+      state.planType = payload.data;
     },
   },
 });

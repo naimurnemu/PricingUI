@@ -20,7 +20,7 @@ const globalStyles = css`
     }
   }
 
-  @media (min-width: ${"1080px"}) and (max-width: ${"1440px"}) {
+  @media (min-width: ${"1080px"}) and (max-width: ${"1280px"}) {
     :root {
       --padding: 0.5rem;
     }
@@ -37,7 +37,6 @@ const globalStyles = css`
     padding: 0 var(--padding);
     margin: 0 auto;
     max-width: 1200px;
-    box-sizing: border-box;
   }
 
   * {

@@ -10,8 +10,19 @@ const dataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
-    setData: (state, { payload }) =>
-      (state = payload.plans.length > 0 ? payload : state),
+    setData: (state, { payload }) => {
+      console.log(payload);
+      state.data = payload;
+      
+      // const plansInfoKeys = Object.keys(state.data.plansInfo);
+      // const objOfArrays = plansInfoKeys.reduce((newObj, key) => {
+      //   newObj[key] = [];
+      //   return newObj;
+      // }, {});
+
+
+  
+    },
   },
 });
 
