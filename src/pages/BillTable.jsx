@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import { Card } from "../components";
 
 function BillTable() {
   return (
-    <div>BillTable</div>
-  )
+    <div>
+      BillTable
+      <Card />
+    </div>
+  );
 }
 
 export default BillTable;

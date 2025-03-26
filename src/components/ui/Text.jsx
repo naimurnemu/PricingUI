@@ -4,7 +4,6 @@ const StyledText = styled.p`
   font-size: 1rem;
   color: ${({ theme }) => theme.colors.text};
   margin: 0.5rem 0;
-  text-align: center;
 `;
 
 function Text({ children }) {

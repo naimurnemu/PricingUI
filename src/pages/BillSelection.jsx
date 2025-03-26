@@ -1,9 +1,11 @@
 import React from "react";
+import { BillMenu } from "../components";
 
 function BillSelection() {
   return (
-  <div>
-    BillSelection
+    <div>
+      BillSelection
+      <BillMenu />
     </div>
   );
 }
