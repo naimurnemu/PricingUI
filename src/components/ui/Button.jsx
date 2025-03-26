@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { theme } from '../../styles';
 
 const StyledButton = styled.button`
   display: flex;
@@ -10,10 +9,10 @@ const StyledButton = styled.button`
   border: none;
   color: white;
   font-weight: 400;
-  background-color: ${({ variant }) => theme.colors.secondary[variant]};
+  background-color: ${({ variant, theme }) => theme.colors.secondary[variant]};
   &:hover {
     cursor: pointer;
-    background-color: ${({ variant }) => theme.colors.primary.hover[variant]};
+    background-color: ${({ variant, theme }) => theme.colors.primary.hover[variant]};
   }
 `;
 

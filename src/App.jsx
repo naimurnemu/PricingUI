@@ -4,13 +4,11 @@ import { Button } from "./components/ui";
 
 function App() {
   return (
-    <container>
       <ThemeProvider theme={theme}>
         <Global styles={globalStyles} />
         <div>Hello</div>
         <Button>Button</Button>
       </ThemeProvider>
-    </container>
   );
 }
 
