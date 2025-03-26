@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   selectedPlans: [],
+  selectedPlanType: "1_year",
 };
 
 const selectPlansSlice = createSlice({
@@ -22,8 +23,11 @@ const selectPlansSlice = createSlice({
         (plan) => plan !== action.payload
       );
     },
+    setPlanType: (state, { payload }) => {
+      state.selectedPlanType = payload.data;
+    },
   },
 });
 
-export const { addPlan, removePlan } = selectPlansSlice.actions;
+export const { addPlan, removePlan, setPlanType } = selectPlansSlice.actions;
 export default selectPlansSlice.reducer;

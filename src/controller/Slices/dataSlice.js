@@ -11,14 +11,9 @@ const dataSlice = createSlice({
   initialState,
   reducers: {
     setData: (state, { payload }) => {
-      console.log(payload);
+      // console.log(payload);
       state.data = payload;
-      
-      // const plansInfoKeys = Object.keys(state.data.plansInfo);
-      // const objOfArrays = plansInfoKeys.reduce((newObj, key) => {
-      //   newObj[key] = [];
-      //   return newObj;
-      // }, {});
+   
 
 
   

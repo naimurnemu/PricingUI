@@ -6,6 +6,7 @@ const StyledGrid = styled.div`
   gap: 1rem;
   justify-content: space-between;
   align-items: stretch;
+  gap: 1.5rem;
 
   @media (min-width: 600px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
