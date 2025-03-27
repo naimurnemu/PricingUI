@@ -19,7 +19,7 @@ function BillTable() {
           selectedType,
         };
         console.log(props);
-        return !Array.isArray(props?.plans) ? null : props?.plans > 1 ? (
+        return !Array.isArray(props?.plans) ? null : props?.plans?.length > 1 ? (
           <MultiCard key={name} {...props} />
         ) : (
           <UniCard key={name} {...props} />

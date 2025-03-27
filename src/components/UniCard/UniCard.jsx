@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Button, Title, Text, Chip, Price } from "../ui";
+import { Button, Title, Text, Chip, Price, Info } from "../ui";
 import { chipContent } from "../../lib/variants";
 
 const StyledCard = styled.div`
@@ -27,6 +27,9 @@ function UniCard({ plans, selectedType, variant = "blue", ...props }) {
       <Price details={details[selectedType]} variant={variant}>
         {price}
       </Price>
+      <Info>
+
+      </Info>
 
       <Text>{description}</Text>
       <Text style={{ fontSize: "1.2rem", fontWeight: "bold" }}>{price}</Text>
