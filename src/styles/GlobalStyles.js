@@ -40,7 +40,7 @@ const globalStyles = css`
     background-repeat: no-repeat;
     padding: 0 var(--padding);
     margin: 0 auto;
-    max-width: 1120px;
+    max-width: 1110px;
     color: #49687e;
   }
 

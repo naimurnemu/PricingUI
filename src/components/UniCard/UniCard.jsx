@@ -3,38 +3,17 @@ import styled from "@emotion/styled";
 import {
   Button,
   Title,
-  Text,
   Chip,
   Price,
   Info,
   Subtitle,
   Tooltip,
+  Card,
+  CardBody,
+  CardAction,
 } from "../ui";
 import { chipContent, subTitles } from "../../lib/variants";
 
-const StyledCard = styled.div`
-  background-color: white;
-  border-radius: 8px;
-  padding: 24px 20px;
-  border: 1px solid transparent;
-  border-top: 8px solid;
-  border-color: ${({ theme }) => theme.colors.card.border};
-  border-top-color: ${({ theme, variant }) => theme.colors.primary[variant]};
-  position: relative;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-`;
-
-const CardBody = styled.div`
-  display: block;
-`;
-
-const CardAction = styled.div`
-  display: block;
-`;
 
 function UniCard({
   plans,
@@ -47,7 +26,7 @@ function UniCard({
   const { name, title, text, price, onSelectPlan, details } = plans[0] || {};
   const featureKey = String(featureIndex);
   return (
-    <StyledCard variant={variant}>
+    <Card variant={variant}>
       {props?.name === "Pro" ? (
         <Chip variant={variant}>{chipContent}</Chip>
       ) : null}
@@ -79,7 +58,7 @@ function UniCard({
           Select Plan
         </Button>
       </CardAction>
-    </StyledCard>
+    </Card>
   );
 }
 
