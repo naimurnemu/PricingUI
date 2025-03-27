@@ -14,7 +14,7 @@ const globalStyles = css`
 
   @media (min-width: ${"250px"}) and (max-width: ${"600px"}) {
     :root {
-      --padding: 1rem;
+      --padding: 15px;
     }
   }
 
@@ -24,7 +24,7 @@ const globalStyles = css`
     }
   }
 
-  @media (min-width: ${"1080px"}) and (max-width: ${"1280px"}) {
+  @media (min-width: ${"1080px"}) {
     :root {
       --padding: 0.5rem;
     }
@@ -40,7 +40,8 @@ const globalStyles = css`
     background-repeat: no-repeat;
     padding: 0 var(--padding);
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1110px;
+    color: #49687e;
   }
 
   * {

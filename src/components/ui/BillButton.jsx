@@ -1,24 +1,22 @@
 import styled from "@emotion/styled";
 
-const StyledButton = styled.button`
-background-color: transparent;
-  font-weight: 600;
-  border: none;
-  padding: 0.4rem 0;
+const BillButton = styled.button`
+  background-color: transparent;
+  font-size: 16px;
+  padding: 4px 0;
   cursor: pointer;
-  transition: 0.3s ease-in-out;
+  border: none;
   border-bottom: 2px solid transparent;
-  border-bottom-color: ${({theme, isSelected}) => (isSelected ? theme.colors.primary.blue : "none")};
-  color: ${({theme, isSelected}) => (isSelected ? theme.colors.primary.blue : theme.colors.text)};
-  
-`;
+  font-weight: ${({ isSelected }) => (isSelected ? "600" : "400")};
+  border-bottom-color: ${({ theme, isSelected }) =>
+    isSelected ? theme.colors.primary.blue : "none"};
+  color: ${({ theme, isSelected }) =>
+    isSelected ? theme.colors.primary.blue : theme.colors.text};
+  white-space: nowrap;
 
-function BillButton({ children, ...props }) {
-  return (
-    <StyledButton {...props}>
-      {children}
-    </StyledButton>
-  );
-}
+  @media (max-width: ${"380px"}) {
+    font-size: 14px;
+  }
+`;
 
 export default BillButton;

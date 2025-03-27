@@ -6,17 +6,21 @@ const StyledMenu = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  padding: 2rem 1rem;
-  /* gap: 0.5rem; */
+  flex-wrap: nowrap;
+  padding: 16px 0;
+  row-gap: 0.5rem;
 `;
 
 const StyledKeyBox = styled.div`
   display: flex;
   align-items: center;
-  /* margin: 0 0.5rem; */
-  border-right: ${({ hasLine }) => (hasLine ? "1px solid #eaeff2" : "none")};
-  padding: 0 1rem;
+  justify-content: center;
+  border-right: ${({ hasLine }) => (hasLine ? "1px solid #c6d7e3" : "none")};
+  padding: 0 17px;
+
+  @media (max-width: ${"600px"}) {
+    padding: 0 10px;
+  }
 `;
 
 function BillMenu({
@@ -36,9 +40,9 @@ function BillMenu({
             {plansInfo[key].title}
           </BillButtion>
           {/* <span>{plansInfo[key].sub_title}</span> */}
-          {plansInfo[key].discount ? <DiscountChip>{plansInfo[key].discount}</DiscountChip> : null}
-          
-          
+          {plansInfo[key].discount ? (
+            <DiscountChip>{plansInfo[key].discount}</DiscountChip>
+          ) : null}
         </StyledKeyBox>
       ))}
     </StyledMenu>

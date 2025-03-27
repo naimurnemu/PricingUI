@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
 
-const StyledGrid = styled.div`
+const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 16px;
   justify-content: space-between;
   align-items: stretch;
-  gap: 1.5rem;
+  padding: 16px 0;
 
   @media (min-width: 600px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -16,9 +16,5 @@ const StyledGrid = styled.div`
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 `;
-
-function Grid({ children }) {
-  return <StyledGrid>{children}</StyledGrid>;
-}
 
 export default Grid;

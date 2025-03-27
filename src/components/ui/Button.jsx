@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const StyledButton = styled.button`
+const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,13 +17,5 @@ const StyledButton = styled.button`
     transition: 0.3s ease-in-out;
   }
 `;
-
-function Button({ children, variant = "blue", ...props }) {
-  return (
-    <StyledButton variant={variant} {...props}>
-      {children}
-    </StyledButton>
-  );
-}
 
 export default Button;

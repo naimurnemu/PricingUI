@@ -15,9 +15,7 @@ function App() {
         const res = await fetch("/pricing.json");
         const data = await res.json();
         if (data) {
-          dispatch(
-            setData(data)
-          );
+          dispatch(setData(data));
         }
       } catch (error) {
         console.log(error);
@@ -33,11 +31,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Global styles={globalStyles} />
-      <BillSelection />
-      <BillTable />
+     
+        <BillSelection />
+        <BillTable />
     </ThemeProvider>
   );
 }
 
 export default App;
-
