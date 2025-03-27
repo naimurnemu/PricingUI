@@ -1,6 +1,7 @@
 import MakeLazy from "../lib/MakeLazy";
 
-const Card = MakeLazy(() => import("./Card"));
+const UniCard = MakeLazy(() => import("./UniCard"));
 const BillMenu = MakeLazy(() => import("./BillMenu"));
+const MultiCard = MakeLazy(() => import("./MultiCard"));
 
-export { Card, BillMenu };
+export { UniCard, BillMenu, MultiCard };

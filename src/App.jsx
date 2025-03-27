@@ -10,18 +10,23 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    (async function () {
+    const fetchData = async () => {
       try {
         const res = await fetch("/pricing.json");
         const data = await res.json();
-        dispatch(setData(data));
+        if (data) {
+          dispatch(
+            setData(data)
+          );
+        }
       } catch (error) {
         console.log(error);
       } finally {
         setLoading(false);
       }
-    })();
-  }, []);
+    };
+    fetchData();
+  }, [dispatch]);
 
   if (loading) return <div>Loading...</div>;
 
@@ -35,3 +40,4 @@ function App() {
 }
 
 export default App;
+

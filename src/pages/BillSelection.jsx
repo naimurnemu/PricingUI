@@ -6,10 +6,10 @@ import { setPlanType } from "../controller/Slices/selectPlansSlice";
 function BillSelection() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state?.data.data);
-  const { plansInfo } = data;
+  const { plansInfo } = data || {plansInfo: {}};
   const planKeys = Object.keys(plansInfo);
   const [selectedPlanType, setSelectedPlanType] = useState(planKeys[0]);
-
+  
   const handlePlanTypeChange = (key) => {
     dispatch(setPlanType({ data: key }));
     setSelectedPlanType(key);

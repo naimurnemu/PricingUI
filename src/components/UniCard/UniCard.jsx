@@ -13,7 +13,7 @@ const StyledCard = styled.div`
   border-top-color: ${({ theme, variant }) => theme.colors.primary[variant]};
 `;
 
-function Card(props) {
+function UniCard(props) {
   const {name, title, description, price, onSelectPlan, variant = "blue" } = props;
   // console.log(props);
   return (
@@ -27,4 +27,4 @@ function Card(props) {
   );
 }
 
-export default Card;
+export default UniCard;
