@@ -7,7 +7,8 @@ const StyledInfo = styled.div`
   white-space: normal;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 14px;
+  gap: 5px;
+  padding: 8px 15px;
   background-color: ${({ theme, variant }) => theme.colors.secondary[variant]};
   border-radius: 50px;
 `;
@@ -16,6 +17,9 @@ const InfoText = styled.p`
   color: ${({ theme, variant }) => theme.colors.primary[variant]};
   font-size: 12.5px;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   > * {
     color: inherit;
   }
