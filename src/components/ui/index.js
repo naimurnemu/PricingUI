@@ -10,6 +10,8 @@ const Title = MakeLazy(() => import("./Title"));
 const Grid = MakeLazy(() => import("./Grid"));
 const BillButtion = MakeLazy(() => import("./BillButton"));
 const DiscountChip = MakeLazy(() => import("./DiscountChip"));
+const Price = MakeLazy(() => import("./Price"));
+const Chip = MakeLazy(() => import("./Chip"));
 
 export {
   Button,
@@ -22,4 +24,6 @@ export {
   Grid,
   BillButtion,
   DiscountChip,
+  Price,
+  Chip,
 };

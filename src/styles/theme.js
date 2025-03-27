@@ -22,12 +22,15 @@ const theme = {
     offer: {
       background: "#f1e9fb",
       linethrough: "#ff424d",
+      pricePeriod: "#83a1b7",
     },
     text: "#49687e",
     card: {
       border: "#eaeff2",
       background: "#ffffff",
     },
+    white: "#ffffff",
+    black: "#000000",
   },
 };
 

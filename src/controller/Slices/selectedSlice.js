@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   selectedPlans: [],
-  selectedPlanType: "1_year",
+  selectedType: "1_year",
 };
 
-const selectPlansSlice = createSlice({
+const selectedSlice = createSlice({
   name: "selectedPlans",
   initialState,
   reducers: {
@@ -24,10 +24,10 @@ const selectPlansSlice = createSlice({
       );
     },
     setPlanType: (state, { payload }) => {
-      state.selectedPlanType = payload.data;
+      state.selectedType = payload.data;
     },
   },
 });
 
-export const { addPlan, removePlan, setPlanType } = selectPlansSlice.actions;
-export default selectPlansSlice.reducer;
+export const { addPlan, removePlan, setPlanType } = selectedSlice.actions;
+export default selectedSlice.reducer;

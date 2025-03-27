@@ -1,4 +1,8 @@
 import { css } from "@emotion/react";
+import "@fontsource/rubik/400.css"; 
+import "@fontsource/rubik/500.css"; 
+import "@fontsource/rubik/600.css"; 
+import "@fontsource/rubik/700.css"; 
 
 const globalStyles = css`
   :root {

@@ -1,28 +1,38 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Button, Title, Text } from "../ui";
+import { Button, Title, Text, Chip, Price } from "../ui";
+import { chipContent } from "../../lib/variants";
 
 const StyledCard = styled.div`
   background-color: white;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  border-radius: 8px;
+  padding: 24px 20px;
   border: 1px solid transparent;
-  border-color: ${({ theme }) => theme.colors.card.border};
   border-top: 0.5rem solid;
+  border-color: ${({ theme }) => theme.colors.card.border};
   border-top-color: ${({ theme, variant }) => theme.colors.primary[variant]};
+  position: relative;
 `;
 
-function UniCard(props) {
-  const {name, title, description, price, onSelectPlan, variant = "blue" } = props;
+function UniCard({ plans, selectedType, variant = "blue", ...props }) {
+  const { name, title, description, price, onSelectPlan, details } =
+    plans[0] || {};
   // console.log(props);
   return (
     <StyledCard variant={variant}>
-      <h4>{name}</h4>
-      <Title>{price}</Title>
+      {props?.name === "Pro" ? (
+        <Chip variant={variant}>{chipContent}</Chip>
+      ) : null}
+      <Title>{name}</Title>
+      <Price details={details[selectedType]} variant={variant}>
+        {price}
+      </Price>
+
       <Text>{description}</Text>
       <Text style={{ fontSize: "1.2rem", fontWeight: "bold" }}>{price}</Text>
-      <Button variant={variant} onClick={onSelectPlan}>Select Plan</Button>
+      <Button variant={variant} onClick={onSelectPlan}>
+        Select Plan
+      </Button>
     </StyledCard>
   );
 }
