@@ -1,9 +1,12 @@
 import styled from "@emotion/styled";
 
-const Subtitle = styled.h2`
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: ${({ theme }) => theme.colors.black};
+const Subtitle = styled.h4`
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px 0;
+  margin: 0;
+  margin-top: 20px;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export default Subtitle;

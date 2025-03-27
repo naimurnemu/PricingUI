@@ -31,9 +31,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Global styles={globalStyles} />
-     
-        <BillSelection />
+        {/* <div style={{ height: "100vh" }}> */}
+          <BillSelection />
         <BillTable />
+        {/* </div> */}
+        
     </ThemeProvider>
   );
 }

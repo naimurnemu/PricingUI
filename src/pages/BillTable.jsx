@@ -5,7 +5,7 @@ import { variants } from "../lib/variants";
 import { MultiCard, UniCard } from "../components";
 
 function BillTable() {
-  const { sortedPlans, data, planNames } = useSelector((state) => state?.data);
+  const { sortedPlans, data, planNames, } = useSelector((state) => state?.data);
   const { selectedType } = useSelector((state) => state?.selected);
   const { plans, features } = data || { plans: [], features: [] };
 
@@ -15,8 +15,11 @@ function BillTable() {
         const props = {
           plans: sortedPlans[name] || [],
           variant: variants[index],
+          featureIndex: index > 0 ? 1 : 0,
           name,
           selectedType,
+          index,
+          features,
         };
         console.log(props);
         return !Array.isArray(props?.plans) ? null : props?.plans?.length > 1 ? (

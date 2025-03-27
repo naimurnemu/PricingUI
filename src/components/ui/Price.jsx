@@ -6,7 +6,8 @@ const PriceContainer = styled.div`
   justify-content: start;
   gap: 8px;
   width: 100%;
-  padding: 10px 0;
+  padding-top: 10px;
+  padding-bottom: 15px;
 `;
 
 const StyledPrice = styled.h2`
