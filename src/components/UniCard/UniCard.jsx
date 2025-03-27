@@ -27,8 +27,8 @@ function UniCard({ plans, selectedType, variant = "blue", ...props }) {
       <Price details={details[selectedType]} variant={variant}>
         {price}
       </Price>
-      <Info>
-
+      <Info variant={variant}>
+      {title}
       </Info>
 
       <Text>{description}</Text>
