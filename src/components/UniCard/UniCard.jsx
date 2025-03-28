@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import {
   Button,
   Title,
@@ -45,7 +45,7 @@ function UniCard({
             ?.filter((item) => item.is_pro === featureKey)
             ?.map((feature) => (
               <Tooltip
-                key={feature.featureKey}
+                key={feature.feature_title}
                 description={feature.feature_desc}
               >
                 {feature.feature_title}
@@ -62,4 +62,4 @@ function UniCard({
   );
 }
 
-export default UniCard;
+export default memo(UniCard);

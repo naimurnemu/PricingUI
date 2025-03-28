@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import React from "react";
 import {
   Button,
@@ -11,6 +11,7 @@ import {
   Card,
   CardBody,
   CardAction,
+  Select,
 } from "../ui";
 
 function MultiCard({
@@ -24,7 +25,6 @@ function MultiCard({
   subTitles,
   ...props
 }) {
-  console.log(props);
   const [selectedPlan, setSelectedPlan] = useState(plans[0]);
   const { name, title, text, price, onSelectPlan, details } = selectedPlan;
 
@@ -39,9 +39,13 @@ function MultiCard({
         <Price details={details[selectedType]} variant={variant}>
           {price}
         </Price>
-        <Info description={text} variant={variant}>
-          {title}
-        </Info>
+
+        <Select
+          variant={variant}
+          options={plans}
+          selected={selectedPlan}
+          handleSelect={(plan) => setSelectedPlan(plan)}
+        />
         <Subtitle>{subTitles[featureIndex]}:</Subtitle>
         <>
           <Tooltip description={text}>{title}</Tooltip>
@@ -49,7 +53,7 @@ function MultiCard({
             ?.filter((item) => item.is_pro === featureKey)
             ?.map((feature) => (
               <Tooltip
-                key={feature.featureKey}
+                key={feature.feature_title}
                 description={feature.feature_desc}
               >
                 {feature.feature_title}
@@ -67,4 +71,4 @@ function MultiCard({
   );
 }
 
-export default MultiCard;
+export default memo(MultiCard);

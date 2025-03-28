@@ -5,9 +5,12 @@ import { variants, popularPlan, chipContent, subTitles } from "../lib/variants";
 import { MultiCard, UniCard } from "../components";
 
 function BillTable() {
-  const { sortedPlans, data, planNames } = useSelector((state) => state?.data);
+  const {
+    sortedPlans,
+    data: { features },
+    planNames,
+  } = useSelector((state) => state?.data) || { data: {} };
   const { selectedType } = useSelector((state) => state?.selected);
-  const { features } = data || { plans: [], features: [] };
 
   return (
     <Grid>
@@ -24,7 +27,6 @@ function BillTable() {
           chipContent,
           subTitles,
         };
-        console.log(props);
         return !Array.isArray(props?.plans) ? null : props?.plans?.length >
           1 ? (
           <MultiCard key={name} {...props} />

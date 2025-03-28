@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { memo, useState } from "react";
 
 const TooltipWrapper = styled.div`
   position: relative;
@@ -68,7 +68,7 @@ const TooltipBox = styled.div`
   visibility: ${({ show }) => (show ? "visible" : "hidden")};
   opacity: ${({ show }) => (show ? 1 : 0)};
   border-radius: 4px;
-  z-index: 1;
+  z-index: 10;
   background-color: ${({ theme }) => theme.colors.card.background};
   box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.01), 1px 2px 16px rgba(0, 0, 0, 0.12);
 
@@ -83,7 +83,6 @@ const TooltipBox = styled.div`
     border-color: ${({ theme }) => theme.colors.card.background} transparent transparent transparent;
   }
 `;
-
 
 const TooltipContent = styled.div`
   font-size: 14px;
@@ -132,4 +131,4 @@ function Tooltip({ description, children, isIcon = false, ...props }) {
   );
 }
 
-export default Tooltip;
+export default memo(Tooltip);
