@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Grid } from "../components/ui";
 import { variants, popularPlan, chipContent, subTitles } from "../lib/variants";
 import { ConfirmModal, MultiCard, UniCard } from "../components";
+import { addPlan } from "../controller/Slices/selectedSlice";
 
 function BillTable() {
   const {
@@ -11,21 +12,20 @@ function BillTable() {
     planNames,
   } = useSelector((state) => state?.data) || { data: {} };
   const { selectedType } = useSelector((state) => state?.selected);
+  const dispatch = useDispatch();
   const [currentPlan, setCurrentPlan] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalType, setModalType] = useState(null);
   const [planType, setPlanType] = useState(null);
 
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
 
   const handleConfirm = () => {
     setIsModalVisible(false);
+    dispatch(addPlan(currentPlan));
+
   };
 
   const handleModalOpen = (plan, modalType, planType) => {
-    console.log(plan);
     setCurrentPlan(plan);
     setIsModalVisible(true);
     setModalType(modalType);
@@ -62,7 +62,7 @@ function BillTable() {
         isVisible={isModalVisible}
         type={modalType}
         title={planType + ": " + currentPlan?.title}
-        onCancel={handleCancel}
+        onCancel={() => setIsModalVisible(false)}
         onConfirm={handleConfirm}
       />
     </Grid>

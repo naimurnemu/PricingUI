@@ -63,7 +63,7 @@ function MultiCard({
       </CardBody>
       <CardAction>
         <Button
-          onClick={() => handleModalOpen(plans[0], "confirm", name)}
+          onClick={() => handleModalOpen(selectedPlan, "confirm", name)}
           variant={variant}
         >
           Select Plan
