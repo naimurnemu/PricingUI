@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import styled from "@emotion/styled";
 import { ArrowDownIcon, InfoIcon } from "../../assets/icons";
 import Tooltip from "./Tooltip";
+import { css } from "@emotion/react";
 
 const SelectWrapper = styled.div`
   position: relative;
@@ -60,16 +61,26 @@ const DropdownList = styled.div`
   transition: opacity 0.2s ease-in, visibility 0.1s linear 0.01s;
 `;
 
+const commonStyle = (props) => css`
+  background: ${props.theme.colors.secondary[props.variant]};
+  color: ${props.theme.colors.primary[props.variant]};
+`;
+
 const Option = styled.div`
   margin: 0;
   padding: 10px 15px;
   width: 100%;
   border: none;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.text};
   border-bottom: 1px solid ${({ theme }) => theme.colors.card.border};
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+
+  ${({ selected, theme, variant }) =>
+    selected ? commonStyle({ theme, variant }) : null};
+
   &:hover {
-    background-color: (
-      ${({ theme, variant }) => theme.colors.secondary[variant]}
-    );
+    ${({ theme, variant }) => commonStyle({ theme, variant })};
   }
 `;
 
@@ -78,7 +89,7 @@ const OptionText = styled.p`
   font-size: 14px;
   font-weight: 400;
   white-space: nowrap;
-  color: ${({ theme }) => theme.colors.text};
+  color: inherit;
   > * {
     color: inherit;
     font-weight: inherit;
@@ -137,7 +148,11 @@ const Select = ({
             selected={selected?.title === option.title}
             {...props}
           >
-            <OptionText dangerouslySetInnerHTML={{ __html: option.title }} />
+            {console.log(selected?.title === option.title)}
+            <OptionText
+              variant={props.variant}
+              dangerouslySetInnerHTML={{ __html: option.title }}
+            />
           </Option>
         ))}
       </DropdownList>
