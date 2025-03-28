@@ -43,7 +43,7 @@ function MultiCard({
         <Select
           variant={variant}
           options={plans}
-          selected={selectedPlan}
+          selected={selectedPlan} 
           handleSelect={(plan) => setSelectedPlan(plan)}
         />
         <Subtitle>{subTitles[featureIndex]}:</Subtitle>

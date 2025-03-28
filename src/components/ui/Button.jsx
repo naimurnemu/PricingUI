@@ -6,6 +6,7 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
   padding: 0px 10px;
+  margin-top: 10px;
   line-height: 40px;
   border-radius: 8px;
   border: none;

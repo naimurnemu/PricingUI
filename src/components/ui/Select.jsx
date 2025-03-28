@@ -1,18 +1,23 @@
 import { useState, useRef, useEffect } from "react";
 import styled from "@emotion/styled";
-import { ArrowDownIcon } from "../../assets/icons";
+import { ArrowDownIcon, InfoIcon } from "../../assets/icons";
+import Tooltip from "./Tooltip";
 
 const SelectWrapper = styled.div`
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
 `;
 
 const SelectBox = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  padding: 8.5px 10px;
+  padding: 9px 15px;
   border-radius: 5px;
   color: ${({ theme, variant }) => theme.colors.primary[variant]};
   border: 1px solid ${({ theme, variant }) => theme.colors.primary[variant]};
@@ -44,15 +49,12 @@ const IconWrapper = styled.span`
 
 const DropdownList = styled.div`
   position: absolute;
-  left: 0;
-  top: 100%;
+  top: 85%;
   width: 100%;
-  margin-top: 4px;
-  background-color: white;
-  border: 1px solid #e5e7eb;
+  background-color: ${({ theme }) => theme.colors.card.background};
   border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 10;
+  box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.01), 1px 1px 16px rgba(0, 0, 0, 0.12);
+  z-index: 1;
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
   visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
   transition: opacity 0.2s ease-in, visibility 0.1s linear 0.01s;
@@ -60,22 +62,27 @@ const DropdownList = styled.div`
 
 const Option = styled.div`
   margin: 0;
-  padding: 0;
-  overflow: hidden;
+  padding: 10px 15px;
   width: 100%;
   border: none;
-  background-color: transparent;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.card.border};
   &:hover {
-    background-color: #f1f1f1;
+    background-color: (
+      ${({ theme, variant }) => theme.colors.secondary[variant]}
+    );
   }
 `;
 
-const OptionText = styled.div`
+const OptionText = styled.p`
   margin: 0;
-  padding: 6px 12px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 14px;
+  font-weight: 400;
   white-space: nowrap;
+  color: ${({ theme }) => theme.colors.text};
+  > * {
+    color: inherit;
+    font-weight: inherit;
+  }
 `;
 
 const Select = ({
@@ -99,9 +106,8 @@ const Select = ({
     };
   }, []);
 
-  const handleOptionClick = (event, plan) => {
-    console.log(plan);
-    // handleSelect(plan);
+  const handleOptionClick = (option) => {
+    handleSelect(option);
     setIsOpen(false);
   };
 
@@ -116,20 +122,24 @@ const Select = ({
           <ArrowDownIcon variant={props.variant} size={20} />
         </IconWrapper>
       </SelectBox>
+      <Tooltip
+        style={{ marginBottom: "-2px" }}
+        description={selected?.text}
+        isIcon={true}
+      >
+        <InfoIcon {...props} varinant={props.variant} />
+      </Tooltip>
       <DropdownList isOpen={isOpen}>
-        {options.map((option) => {
-          option;
-          return (
-            <Option
-              key={option.title}
-              onClick={(event, option) => handleOptionClick(option)}
-              selected={selected?.title === option.title}
-              {...props}
-            >
-              <OptionText dangerouslySetInnerHTML={{ __html: option.title }} />
-            </Option>
-          );
-        })}
+        {options.map((option) => (
+          <Option
+            key={option.title}
+            onClick={() => handleOptionClick(option)}
+            selected={selected?.title === option.title}
+            {...props}
+          >
+            <OptionText dangerouslySetInnerHTML={{ __html: option.title }} />
+          </Option>
+        ))}
       </DropdownList>
     </SelectWrapper>
   );

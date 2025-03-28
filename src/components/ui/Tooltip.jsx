@@ -25,36 +25,6 @@ const TooltipTitle = styled.div`
   }
 `;
 
-// const TooltipBox = styled.div`
-//   display: flex;
-//   width: 110%;
-//   min-width: 250px;
-//   padding: 8px 12px;
-//   position: absolute;
-//   bottom: 130%;
-//   left: 50%;
-//   transform: ${({ isIcon }) => (isIcon ? "translateX(0%)" : "translateX(30%)")};
-//   transition: opacity 0.2s ease-in-out;
-//   visibility: ${({ show }) => (show ? "visible" : "hidden")};
-//   opacity: ${({ show }) => (show ? 1 : 0)};
-//   border-radius: 4px;
-//   z-index: 1;
-//   background-color: ${({ theme }) => theme.colors.card.background};
-//   box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.01), 1px 2px 16px rgba(0, 0, 0, 0.12);
-
-//   &::after {
-//     content: "";
-//     position: absolute;
-//     top: 100%;
-//     left: ${({ isIcon }) => (isIcon ? "auto" : "10%")};
-//     right: ${({ isIcon }) => (isIcon ? "10%" : "auto")};
-//     border-width: 6px;
-//     border-style: solid;
-//     border-color: ${({ theme }) => theme.colors.card.background} transparent
-//       transparent transparent;
-//   }
-// `;
-
 const TooltipBox = styled.div`
   display: flex;
   width: 110%;
