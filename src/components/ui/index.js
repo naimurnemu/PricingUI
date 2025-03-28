@@ -14,6 +14,7 @@ const Chip = MakeLazy(() => import("./Chip"));
 const Card = MakeLazy(() => import("./Card"));
 const CardAction = MakeLazy(() => import("./CardAction"));
 const CardBody = MakeLazy(() => import("./CardBody"));
+const Loading = MakeLazy(() => import("./Loading"));
 
 export {
   Button,
@@ -30,4 +31,5 @@ export {
   Card,
   CardBody,
   CardAction,
+  Loading,
 };

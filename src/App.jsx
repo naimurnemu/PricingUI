@@ -4,6 +4,7 @@ import { BillSelection, BillTable } from "./pages";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { setData } from "./controller/Slices/dataSlice";
+import { Loading } from "./components/ui";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,16 +27,13 @@ function App() {
     fetchData();
   }, [dispatch]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return(<Loading />);
 
   return (
     <ThemeProvider theme={theme}>
       <Global styles={globalStyles} />
-        {/* <div style={{ height: "100vh" }}> */}
-          <BillSelection />
-        <BillTable />
-        {/* </div> */}
-        
+      <BillSelection />
+      <BillTable />
     </ThemeProvider>
   );
 }
