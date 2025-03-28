@@ -1,4 +1,3 @@
-import styled from "@emotion/styled";
 import { useState } from "react";
 import React from "react";
 import {
@@ -13,10 +12,6 @@ import {
   CardBody,
   CardAction,
 } from "../ui";
-import { chipContent, subTitles } from "../../lib/variants";
-
-
-
 
 function MultiCard({
   plans,
@@ -24,6 +19,9 @@ function MultiCard({
   variant = "blue",
   features,
   featureIndex,
+  popularPlan,
+  chipContent,
+  subTitles,
   ...props
 }) {
   console.log(props);
@@ -33,7 +31,7 @@ function MultiCard({
   const featureKey = String(featureIndex);
   return (
     <Card variant={variant}>
-      {props?.name === "Pro" ? (
+      {props?.name === popularPlan ? (
         <Chip variant={variant}>{chipContent}</Chip>
       ) : null}
       <CardBody>

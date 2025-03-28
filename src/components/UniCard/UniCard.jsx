@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "@emotion/styled";
 import {
   Button,
   Title,
@@ -12,8 +11,6 @@ import {
   CardBody,
   CardAction,
 } from "../ui";
-import { chipContent, subTitles } from "../../lib/variants";
-
 
 function UniCard({
   plans,
@@ -21,13 +18,16 @@ function UniCard({
   variant = "blue",
   features,
   featureIndex,
+  popularPlan,
+  chipContent,
+  subTitles,
   ...props
 }) {
   const { name, title, text, price, onSelectPlan, details } = plans[0] || {};
   const featureKey = String(featureIndex);
   return (
     <Card variant={variant}>
-      {props?.name === "Pro" ? (
+      {props?.name === popularPlan ? (
         <Chip variant={variant}>{chipContent}</Chip>
       ) : null}
       <CardBody>
