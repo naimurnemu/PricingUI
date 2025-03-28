@@ -31,6 +31,9 @@ const theme = {
     },
     white: "#ffffff",
     black: "#000000",
+    success: "#007bff",
+    error: "#dc3545",
+    gray: "#6c757d"
   },
 };
 

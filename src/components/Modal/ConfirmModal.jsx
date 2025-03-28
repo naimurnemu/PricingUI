@@ -53,11 +53,11 @@ const Button = styled.button`
   background-color: ${({ type }) => {
     switch (type) {
       case "confirm":
-        return "#007bff";
+        return ({ theme }) => theme.colors.success;
       case "delete":
-        return "#dc3545";
+        return ({ theme }) => theme.colors.error;
       default:
-        return "#6c757d";
+        return ({ theme }) => theme.colors.gray;
     }
   }};
   color: white;
@@ -67,7 +67,7 @@ const Button = styled.button`
   }
 `;
 
-const ConfirmModal = ({ isVisible, type, title, onCancel, onConfirm }) => {
+const ConfirmModal = ({ isVisible, type, title, onCancel, onConfirm, ...props }) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (event.target === event.currentTarget) {
@@ -93,7 +93,7 @@ const ConfirmModal = ({ isVisible, type, title, onCancel, onConfirm }) => {
             style={{
               fontSize: "24px",
               margin: 0,
-              color: type ? "#007bff" : "#dc3545",
+              color: type === "confirm" ? "#007bff" : "#dc3545",
             }}
           >
             Please Confirm Your Action

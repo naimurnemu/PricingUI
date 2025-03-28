@@ -48,6 +48,55 @@ const IconWrapper = styled.span`
     isOpen ? "translateY(-5px) rotate(180deg)" : "none"};
 `;
 
+const SelectQuantity = styled.div`
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+
+  &:hover .quantity {
+    opacity: 0;
+  }
+
+  &:hover .minus {
+    opacity: 1;
+  }
+`;
+
+const QuantityText = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  opacity: 1;
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.colors.success};
+  color: ${({ theme }) => theme.colors.white};
+  transition: opacity 0.2s ease;
+  position: absolute;
+  font-size: 14px;
+`;
+
+const Minus = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.error};
+  color: ${({ theme }) => theme.colors.white};
+  transition: opacity 0.2s ease;
+  font-size: 14px;
+  font-weight: 600;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  opacity: 0;
+  position: absolute;
+`;
+
 const DropdownList = styled.div`
   position: absolute;
   top: 85%;
@@ -100,6 +149,7 @@ const Select = ({
   selected,
   handleSelect = () => {},
   options = [],
+  quantity,
   ...props
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -133,13 +183,26 @@ const Select = ({
           <ArrowDownIcon variant={props.variant} size={20} />
         </IconWrapper>
       </SelectBox>
-      <Tooltip
-        style={{ marginBottom: "-2px" }}
-        description={selected?.text}
-        isIcon={true}
-      >
-        <InfoIcon {...props} varinant={props.variant} />
-      </Tooltip>
+      {quantity ? (
+        <SelectQuantity>
+          <QuantityText className="quantity">{quantity}</QuantityText>
+          <Minus
+            onClick={() => props.handleModalOpen()}
+            {...props}
+            className="minus"
+          >
+            -
+          </Minus>
+        </SelectQuantity>
+      ) : (
+        <Tooltip
+          style={{ marginBottom: "-2px" }}
+          description={selected?.text}
+          isIcon={true}
+        >
+          <InfoIcon {...props} varinant={props.variant} />
+        </Tooltip>
+      )}
       <DropdownList isOpen={isOpen}>
         {options.map((option) => (
           <Option

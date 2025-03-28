@@ -15,6 +15,7 @@ import {
 function UniCard({
   plans,
   selectedType,
+  selectedPlans,
   variant = "blue",
   features,
   featureIndex,
@@ -36,7 +37,12 @@ function UniCard({
         <Price details={details[selectedType]} variant={variant}>
           {price}
         </Price>
-        <Info description={text} variant={variant}>
+        <Info
+          handleModalOpen={() => handleModalOpen(plans[0], "delete", name)}
+          description={text}
+          variant={variant}
+          quantity={selectedPlans[name]?.[title]?.quantity || 0}
+        >
           {title}
         </Info>
         <Subtitle>{subTitles[featureIndex]}:</Subtitle>

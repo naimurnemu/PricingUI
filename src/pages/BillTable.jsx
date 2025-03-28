@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Grid } from "../components/ui";
 import { variants, popularPlan, chipContent, subTitles } from "../lib/variants";
 import { ConfirmModal, MultiCard, UniCard } from "../components";
-import { addPlan } from "../controller/Slices/selectedSlice";
+import { addPlan, removePlan } from "../controller/Slices/selectedSlice";
 
 function BillTable() {
   const {
@@ -11,18 +11,19 @@ function BillTable() {
     data: { features },
     planNames,
   } = useSelector((state) => state?.data) || { data: {} };
-  const { selectedType } = useSelector((state) => state?.selected);
+  const { selectedType, selectedPlans } = useSelector((state) => state?.selected);
   const dispatch = useDispatch();
   const [currentPlan, setCurrentPlan] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalType, setModalType] = useState(null);
   const [planType, setPlanType] = useState(null);
 
+  const handleAddPlan = (plan) => {
+    dispatch(addPlan(plan));
+  };
 
-  const handleConfirm = () => {
-    setIsModalVisible(false);
-    dispatch(addPlan(currentPlan));
-
+  const handleDeletePlan = (plan) => {
+    dispatch(removePlan(plan));
   };
 
   const handleModalOpen = (plan, modalType, planType) => {
@@ -31,6 +32,13 @@ function BillTable() {
     setModalType(modalType);
     setPlanType(planType);
   };
+
+  const handleConfirm = () => {
+    setIsModalVisible(false);
+    console.log(currentPlan);
+    modalType === "confirm" ? handleAddPlan(currentPlan) : handleDeletePlan(currentPlan);
+  };
+
 
   return (
     <Grid>
@@ -41,6 +49,7 @@ function BillTable() {
           featureIndex: index > 0 ? 1 : 0,
           name,
           selectedType,
+          selectedPlans,
           index,
           features,
           popularPlan,
@@ -64,6 +73,7 @@ function BillTable() {
         title={planType + ": " + currentPlan?.title}
         onCancel={() => setIsModalVisible(false)}
         onConfirm={handleConfirm}
+
       />
     </Grid>
   );

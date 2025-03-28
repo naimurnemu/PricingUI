@@ -22,8 +22,7 @@ const selectedSlice = createSlice({
       state.selectedPlans = {
         ...selectedPlans,
         [name]: { ...prevQuantites, [title]: { quantity: quantity } },
-      };
-      console.log(selectedPlans);
+      }; 
     },
     removePlan: (state, { payload }) => {
       const { name, title } = payload;

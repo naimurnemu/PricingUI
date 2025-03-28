@@ -17,6 +17,7 @@ import {
 function MultiCard({
   plans,
   selectedType,
+  selectedPlans,
   variant = "blue",
   features,
   featureIndex,
@@ -44,7 +45,9 @@ function MultiCard({
           variant={variant}
           options={plans}
           selected={selectedPlan}
+          handleModalOpen={() => handleModalOpen(selectedPlan, "delete", name)}
           handleSelect={(plan) => setSelectedPlan(plan)}
+          quantity={selectedPlans[name]?.[title]?.quantity || 0}
         />
         <Subtitle>{subTitles[featureIndex]}:</Subtitle>
         <>

@@ -4,7 +4,7 @@ import theme from "../../styles/theme";
 const InfoIcon = ({
   fontSize = "inherit",
   fontWeight = "normal",
-  varinant,
+  variant,
 }) => {
   return (
     <svg
@@ -13,7 +13,7 @@ const InfoIcon = ({
       height="1em"
       viewBox="0 0 24 24"
       fill="none"
-      stroke={theme.colors.primary[varinant]}
+      stroke={theme.colors.primary[variant]}
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
