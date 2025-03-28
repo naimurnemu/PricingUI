@@ -21,9 +21,10 @@ function UniCard({
   popularPlan,
   chipContent,
   subTitles,
+  handleModalOpen,
   ...props
 }) {
-  const { name, title, text, price, onSelectPlan, details } = plans[0] || {};
+  const { name, title, text, price, details } = plans[0] || {};
   const featureKey = String(featureIndex);
   return (
     <Card variant={variant}>
@@ -54,7 +55,10 @@ function UniCard({
         </>
       </CardBody>
       <CardAction>
-        <Button variant={variant} onClick={onSelectPlan}>
+        <Button
+          onClick={() => handleModalOpen(plans[0], "confirm", name)}
+          variant={variant}
+        >
           Select Plan
         </Button>
       </CardAction>

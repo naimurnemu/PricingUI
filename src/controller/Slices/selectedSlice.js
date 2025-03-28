@@ -10,18 +10,10 @@ const selectedSlice = createSlice({
   initialState,
   reducers: {
     addPlan: (state, action) => {
-      const { plan, quantity } = action.payload;
-      const hasPlan = state.selectedPlans.find((p) => p.plan === plan);
-      if (hasPlan) {
-        hasPlan.quantity += quantity;
-      } else {
-        state.selectedPlans.push({ plan, quantity });
-      }
+      
     },
     removePlan: (state, action) => {
-      state.selectedPlans = state.selectedPlans.filter(
-        (plan) => plan !== action.payload
-      );
+      
     },
     setPlanType: (state, { payload }) => {
       state.selectedType = payload.data;

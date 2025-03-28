@@ -7,6 +7,11 @@ const Subtitle = styled.h4`
   margin: 0;
   margin-top: 20px;
   color: ${({ theme }) => theme.colors.text};
+
+  > * {
+    color: inherit;
+    font-weight: inherit;
+  }
 `;
 
 export default Subtitle;

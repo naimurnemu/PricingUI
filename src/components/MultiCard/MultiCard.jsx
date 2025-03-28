@@ -23,10 +23,11 @@ function MultiCard({
   popularPlan,
   chipContent,
   subTitles,
+  handleModalOpen,
   ...props
 }) {
   const [selectedPlan, setSelectedPlan] = useState(plans[0]);
-  const { name, title, text, price, onSelectPlan, details } = selectedPlan;
+  const { name, title, text, price, details } = selectedPlan;
 
   const featureKey = String(featureIndex);
   return (
@@ -39,11 +40,10 @@ function MultiCard({
         <Price details={details[selectedType]} variant={variant}>
           {price}
         </Price>
-
         <Select
           variant={variant}
           options={plans}
-          selected={selectedPlan} 
+          selected={selectedPlan}
           handleSelect={(plan) => setSelectedPlan(plan)}
         />
         <Subtitle>{subTitles[featureIndex]}:</Subtitle>
@@ -61,9 +61,11 @@ function MultiCard({
             ))}
         </>
       </CardBody>
-
       <CardAction>
-        <Button variant={variant} onClick={onSelectPlan}>
+        <Button
+          onClick={() => handleModalOpen(plans[0], "confirm", name)}
+          variant={variant}
+        >
           Select Plan
         </Button>
       </CardAction>

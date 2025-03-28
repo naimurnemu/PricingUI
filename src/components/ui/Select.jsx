@@ -148,7 +148,6 @@ const Select = ({
             selected={selected?.title === option.title}
             {...props}
           >
-            {console.log(selected?.title === option.title)}
             <OptionText
               variant={props.variant}
               dangerouslySetInnerHTML={{ __html: option.title }}
